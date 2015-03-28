@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAe-Vz-V07">
+                                <rect key="frame" x="40" y="40" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="LPQ-Sz-af6"/>
+                                    <constraint firstAttribute="height" constant="50" id="i7v-kH-1rh"/>
+                                </constraints>
+                                <state key="normal" title="Get Bluetooth Smart Paring Infomation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GetBluetoothSmartParingInfomationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyw-ll-LT3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-h2-h7z">
+                                <rect key="frame" x="36" y="110" width="528" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-ar-o8z">
+                                <rect key="frame" x="40" y="171" width="140" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="40c-8u-e1O"/>
+                                    <constraint firstAttribute="width" constant="140" id="gkg-Sy-yxq"/>
+                                </constraints>
+                                <state key="normal" title="Power ON Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PowerOnTestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jhW-PN-gCW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMD-uD-j1j">
+                                <rect key="frame" x="40" y="261" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HzD-KQ-6BE"/>
+                                    <constraint firstAttribute="width" constant="150" id="q18-yL-HyW"/>
+                                </constraints>
+                                <state key="normal" title="Take Picture Action">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TakePictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fv4-vj-Iko"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FAe-Vz-V07" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="8vY-h4-vsC"/>
+                            <constraint firstItem="NZu-ar-o8z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="LMM-qQ-TjO"/>
+                            <constraint firstItem="sMD-uD-j1j" firstAttribute="leading" secondItem="NZu-ar-o8z" secondAttribute="trailing" constant="60" id="WHd-zM-Lim"/>
+                            <constraint firstItem="sMD-uD-j1j" firstAttribute="top" secondItem="lTW-h2-h7z" secondAttribute="bottom" constant="40" id="WQX-vQ-brY"/>
+                            <constraint firstItem="lTW-h2-h7z" firstAttribute="top" secondItem="FAe-Vz-V07" secondAttribute="bottom" constant="20" id="WTW-N9-Boi"/>
+                            <constraint firstItem="FAe-Vz-V07" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="XbG-vW-AmP"/>
+                            <constraint firstItem="sMD-uD-j1j" firstAttribute="top" secondItem="NZu-ar-o8z" secondAttribute="bottom" constant="40" id="dwo-5d-JXU"/>
+                            <constraint firstItem="NZu-ar-o8z" firstAttribute="top" secondItem="lTW-h2-h7z" secondAttribute="bottom" constant="40" id="gPf-FG-mDx"/>
+                            <constraint firstItem="sMD-uD-j1j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="jF2-dQ-WHd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lTW-h2-h7z" secondAttribute="trailing" constant="20" id="lom-mb-aAf"/>
+                            <constraint firstItem="lTW-h2-h7z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="rXR-5S-3b3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WHd-zM-Lim"/>
+                                <exclude reference="WQX-vQ-brY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="lTW-h2-h7z" id="Oyj-QC-Snd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
