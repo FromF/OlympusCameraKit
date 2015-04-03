@@ -12,7 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var BluetoothSmartName = NSString()
+    var BluetoothSmartPasscode = NSString()
+    var BluetoothSmartNotification : NSString = "BluetoothSmartNotification"
 
+    class var sharedCamera : OLYCamera {
+        struct Static {
+            static let instance : OLYCamera = OLYCamera()
+        }
+        return Static.instance
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,6 +50,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        var oacentralconf  = OACentralConfiguration(configurationURL: url)
+        
+        self.BluetoothSmartName = oacentralconf.bleName
+        self.BluetoothSmartPasscode = oacentralconf.bleCode
+        
+        //Notification
+        NSNotificationCenter.defaultCenter().postNotificationName(self.BluetoothSmartNotification, object: nil)
+        
+        println("BletoothSmart Name[\(self.BluetoothSmartName)] Passcode[\(self.BluetoothSmartPasscode)]")
+
+        return true
+    }
 
 }
 

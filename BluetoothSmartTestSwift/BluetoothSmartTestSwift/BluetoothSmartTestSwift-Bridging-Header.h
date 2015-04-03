@@ -10,5 +10,6 @@
 #define BluetoothSmartTestSwift_BluetoothSmartTestSwift_Bridging_Header_h
 
 #import <OLYCameraKit/OLYCamera.h>
+#import <OLYCameraKit/OACentralConfiguration.h>
 
 #endif
