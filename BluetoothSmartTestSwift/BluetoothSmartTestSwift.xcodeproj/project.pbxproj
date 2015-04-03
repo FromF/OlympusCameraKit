@@ -13,6 +13,7 @@
 		9DE805A41ACE1BFE00435B15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE805A31ACE1BFE00435B15 /* Images.xcassets */; };
 		9DE805A71ACE1BFE00435B15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE805A51ACE1BFE00435B15 /* LaunchScreen.xib */; };
 		9DE805B31ACE1BFE00435B15 /* BluetoothSmartTestSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE805B21ACE1BFE00435B15 /* BluetoothSmartTestSwiftTests.swift */; };
+		9DE805BE1ACE1D9600435B15 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE805BD1ACE1D9600435B15 /* OLYCameraKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		9DE805AC1ACE1BFE00435B15 /* BluetoothSmartTestSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothSmartTestSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE805B11ACE1BFE00435B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DE805B21ACE1BFE00435B15 /* BluetoothSmartTestSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSmartTestSwiftTests.swift; sourceTree = "<group>"; };
+		9DE805BC1ACE1CF500435B15 /* BluetoothSmartTestSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BluetoothSmartTestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DE805BD1ACE1D9600435B15 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE805BE1ACE1D9600435B15 /* OLYCameraKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +66,7 @@
 				9DE805991ACE1BFE00435B15 /* BluetoothSmartTestSwift */,
 				9DE805AF1ACE1BFE00435B15 /* BluetoothSmartTestSwiftTests */,
 				9DE805981ACE1BFE00435B15 /* Products */,
+				9DE805BF1ACE1D9C00435B15 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +82,7 @@
 		9DE805991ACE1BFE00435B15 /* BluetoothSmartTestSwift */ = {
 			isa = PBXGroup;
 			children = (
+				9DE805BC1ACE1CF500435B15 /* BluetoothSmartTestSwift-Bridging-Header.h */,
 				9DE8059C1ACE1BFE00435B15 /* AppDelegate.swift */,
 				9DE8059E1ACE1BFE00435B15 /* ViewController.swift */,
 				9DE805A01ACE1BFE00435B15 /* Main.storyboard */,
@@ -110,6 +116,14 @@
 				9DE805B11ACE1BFE00435B15 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DE805BF1ACE1D9C00435B15 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				9DE805BD1ACE1D9600435B15 /* OLYCameraKit.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,9 +350,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BluetoothSmartTestSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/BluetoothSmartTestSwift-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -346,9 +366,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BluetoothSmartTestSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/BluetoothSmartTestSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};
