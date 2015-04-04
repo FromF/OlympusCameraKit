@@ -19,7 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-9y-tvf">
                                 <rect key="frame" x="40" y="40" width="300" height="50"/>
-                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="6qa-Qe-G7S"/>
                                     <constraint firstAttribute="height" constant="50" id="aPI-Sv-dVT"/>
@@ -35,14 +35,48 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzN-hL-8Vk">
                                 <rect key="frame" x="36" y="110" width="528" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-7K-Awj">
+                                <rect key="frame" x="40" y="171" width="140" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="L4W-jx-TIY"/>
+                                    <constraint firstAttribute="height" constant="50" id="oTT-zJ-yKI"/>
+                                </constraints>
+                                <state key="normal" title="Power ON Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PowerOnTestAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XxL-gi-dQj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUe-Or-yO5">
+                                <rect key="frame" x="40" y="261" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="4s5-7a-4nK"/>
+                                    <constraint firstAttribute="height" constant="50" id="Bn6-mu-bPH"/>
+                                </constraints>
+                                <state key="normal" title="Take Picture Action">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TakePictureAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ycP-UV-cvt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="LzN-hL-8Vk" secondAttribute="trailing" constant="20" id="Kmk-hF-y6L"/>
+                            <constraint firstItem="DUe-Or-yO5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="KqV-gb-8La"/>
+                            <constraint firstItem="z4a-7K-Awj" firstAttribute="top" secondItem="LzN-hL-8Vk" secondAttribute="bottom" constant="40" id="L2k-7K-JzW"/>
                             <constraint firstItem="LzN-hL-8Vk" firstAttribute="top" secondItem="Oob-9y-tvf" secondAttribute="bottom" constant="20" id="MVq-jH-VZ5"/>
+                            <constraint firstItem="z4a-7K-Awj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="Nhf-y4-xFK"/>
+                            <constraint firstItem="DUe-Or-yO5" firstAttribute="top" secondItem="z4a-7K-Awj" secondAttribute="bottom" constant="40" id="ZHF-2O-PYM"/>
                             <constraint firstItem="LzN-hL-8Vk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="f6j-KT-LFL"/>
                             <constraint firstItem="Oob-9y-tvf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="40" id="fQK-mF-VYg"/>
                             <constraint firstItem="Oob-9y-tvf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="ujY-vt-MXu"/>
