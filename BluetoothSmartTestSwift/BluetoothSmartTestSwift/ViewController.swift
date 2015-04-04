@@ -98,7 +98,6 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
                 camera.bluetoothPeripheral = nil
                 
                 self.centralManager.stopScan()
-                //NSDictionary *option = @{ CBCentralManagerScanOptionAllowDuplicatesKey: @NO };
                 var option : NSDictionary = [CBCentralManagerScanOptionAllowDuplicatesKey : false]
                 self.centralManager.scanForPeripheralsWithServices(OLYCamera.bluetoothServices(), options: nil)
                 //10sec wait
