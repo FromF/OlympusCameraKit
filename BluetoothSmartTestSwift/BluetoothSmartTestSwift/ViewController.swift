@@ -87,9 +87,18 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
     func scanBluetoothSmart() ->Bool {
         var result : Bool = true
         
-        if (self.centralManager.state != CBCentralManagerState.PoweredOn) {
-            println("BluetoothSmart device is not powered on!")
-            result = false
+        if (result) {
+            if (self.centralManager.state != CBCentralManagerState.PoweredOn) {
+                println("BluetoothSmart device is not powered on!")
+                result = false
+            }
+        }
+        
+        if (result) {
+            if (appDelegate.BluetoothSmartName.length == 0) {
+                println("BluetoothSmart pairing infomation not found!")
+                result = false
+            }
         }
         
         if (result) {
@@ -100,12 +109,34 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
                 self.centralManager.stopScan()
                 var option : NSDictionary = [CBCentralManagerScanOptionAllowDuplicatesKey : false]
                 self.centralManager.scanForPeripheralsWithServices(OLYCamera.bluetoothServices(), options: nil)
-                //10sec wait
-                NSThread.sleepForTimeInterval(10.0)
+                //10sec timeout
+                if (true) {
+                    var startdate : NSDate = NSDate()
+                    while(true) {
+                        if (NSDate().timeIntervalSinceDate(startdate) > 10) {
+                            break;
+                        }
+                        if (camera.bluetoothPeripheral != nil) {
+                            break;
+                        }
+                        NSThread.sleepForTimeInterval(0.2)
+                    }
+                }
                 if (camera.bluetoothPeripheral != nil) {
                     self.centralManager.connectPeripheral(camera.bluetoothPeripheral, options: nil)
-                    //2sec wait
-                    NSThread.sleepForTimeInterval(2.0)
+                    //2sec timeout
+                    if (true) {
+                        var startdate : NSDate = NSDate()
+                        while(true) {
+                            if (NSDate().timeIntervalSinceDate(startdate) > 2) {
+                                break;
+                            }
+                            if (camera.bluetoothPeripheral.state == CBPeripheralState.Connected) {
+                                break;
+                            }
+                            NSThread.sleepForTimeInterval(0.2)
+                        }
+                    }
                     if (camera.bluetoothPeripheral.state != CBPeripheralState.Connected) {
                         println("BluetoothSmart device is not conneted.")
                         camera.bluetoothPeripheral = nil
