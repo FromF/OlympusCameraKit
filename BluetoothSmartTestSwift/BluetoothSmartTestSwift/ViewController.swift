@@ -16,7 +16,7 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
     var centralManager: CBCentralManager!
 
     //AppDelegate instance
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +24,11 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
         self.infoLabel.text = ""
         
         //Notification Regist
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bluetoothSmartUpdated:", name: appDelegate.BluetoothSmartNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "bluetoothSmartUpdated:", name: appDelegate.BluetoothSmartNotification as String, object: nil)
         
         //CoreBluetooth Initialize
         var option : NSDictionary = [CBCentralManagerOptionShowPowerAlertKey : true]
-        self.centralManager = CBCentralManager(delegate: self, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , options: option)
+        self.centralManager = CBCentralManager(delegate: self, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , options: option as [NSObject : AnyObject])
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,13 +66,13 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
         if (result) {
             result = camera.connect(OLYCameraConnectionTypeBluetoothLE, error: nil)
         }
-        if ((result) & (camera.connected)) {
+        if ((result) && (camera.connected)) {
             result = camera.changeRunMode(OLYCameraRunModeRecording, error: nil)
         }
-        if ((result) & (camera.connected)) {
+        if ((result) && (camera.connected)) {
             camera.takePicture(nil, progressHandler: nil, completionHandler: nil, errorHandler: nil)
         }
-        if ((result) & (camera.connected)) {
+        if ((result) && (camera.connected)) {
             camera.disconnectWithPowerOff(true, error: nil)
         }
         println("result \(result)")
@@ -154,7 +154,7 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
         
         if (result) {
             var camera = AppDelegate.sharedCamera
-            camera.bluetoothPassword = appDelegate.BluetoothSmartPasscode
+            camera.bluetoothPassword = appDelegate.BluetoothSmartPasscode as String
         }
         
         return result;
@@ -170,7 +170,7 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
         
         var camera = AppDelegate.sharedCamera
         if (appDelegate.BluetoothSmartName.length > 0) {
-            if (advertisementData[CBAdvertisementDataLocalNameKey] as NSString == appDelegate.BluetoothSmartName) {
+            if (advertisementData[CBAdvertisementDataLocalNameKey] as! NSString == appDelegate.BluetoothSmartName) {
                 //Store peripheral infomation
                 camera.bluetoothPeripheral = peripheral;
                 //peripheral scan stop

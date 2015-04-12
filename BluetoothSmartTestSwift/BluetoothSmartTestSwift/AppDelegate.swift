@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.BluetoothSmartPasscode = oacentralconf.bleCode
         
         //Notification
-        NSNotificationCenter.defaultCenter().postNotificationName(self.BluetoothSmartNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(self.BluetoothSmartNotification as String, object: nil)
         
         println("BletoothSmart Name[\(self.BluetoothSmartName)] Passcode[\(self.BluetoothSmartPasscode)]")
 
