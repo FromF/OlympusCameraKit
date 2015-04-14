@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D443A7D1ADD1BFE007156B8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D443A7C1ADD1BFE007156B8 /* Reachability.m */; };
 		9DC64F991ADAB1EC0037C313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC64F981ADAB1EC0037C313 /* AppDelegate.swift */; };
 		9DC64F9B1ADAB1EC0037C313 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC64F9A1ADAB1EC0037C313 /* ViewController.swift */; };
 		9DC64F9E1ADAB1EC0037C313 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC64F9C1ADAB1EC0037C313 /* Main.storyboard */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D443A7B1ADD1BFE007156B8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		9D443A7C1ADD1BFE007156B8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		9DC64F931ADAB1EC0037C313 /* RecCameraSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecCameraSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC64F971ADAB1EC0037C313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DC64F981ADAB1EC0037C313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 		9DC64F951ADAB1EC0037C313 /* RecCameraSwift */ = {
 			isa = PBXGroup;
 			children = (
+				9D443A7B1ADD1BFE007156B8 /* Reachability.h */,
+				9D443A7C1ADD1BFE007156B8 /* Reachability.m */,
 				9DC64FBB1ADAB24B0037C313 /* RecCameraSwift-Bridging-Header.h */,
 				9DC64F981ADAB1EC0037C313 /* AppDelegate.swift */,
 				9DC64F9A1ADAB1EC0037C313 /* ViewController.swift */,
@@ -231,6 +236,7 @@
 			files = (
 				9DC64FBF1ADABA6A0037C313 /* LiveView.swift in Sources */,
 				9DC64F9B1ADAB1EC0037C313 /* ViewController.swift in Sources */,
+				9D443A7D1ADD1BFE007156B8 /* Reachability.m in Sources */,
 				9DC64F991ADAB1EC0037C313 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +447,7 @@
 				9DC64FB41ADAB1EC0037C313 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DC64FB51ADAB1EC0037C313 /* Build configuration list for PBXNativeTarget "RecCameraSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +456,7 @@
 				9DC64FB71ADAB1EC0037C313 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

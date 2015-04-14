@@ -20,7 +20,8 @@ class LiveView: UIViewController , OLYCameraLiveViewDelegate {
         //Notification Regist
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationApplicationBackground:", name: appDelegate.NotificationApplicationBackground as String, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationCameraKitDisconnect:", name: appDelegate.NotificationCameraKitDisconnect as String, object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationRechabilityDisconnect:", name: appDelegate.NotificationNetworkDisconnected as String, object: nil)
+
         var camera = AppDelegate.sharedCamera
         camera.liveViewDelegate = self
 
@@ -61,6 +62,9 @@ class LiveView: UIViewController , OLYCameraLiveViewDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     func NotificationCameraKitDisconnect(notification : NSNotification?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    func NotificationRechabilityDisconnect(notification : NSNotification?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

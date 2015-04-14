@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>6B742025-26A5-42F8-8C9A-69DE3BD4E51C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>RecCameraSwift</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A596AB55D9945423F372D5022DD2AA1BF405A87A</key>
 		<string>https://github.com/FromF/OlympusCameraKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RecCameraSwift/RecCameraSwift.xcodeproj/project.xcworkspace</string>
+	<string>RecCameraSwift/RecCameraSwift.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A596AB55D9945423F372D5022DD2AA1BF405A87A</key>

@@ -19,7 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reP-ky-BxY">
                                 <rect key="frame" x="265" y="280" width="70" height="40"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EQO-vI-xC4"/>
                                     <constraint firstAttribute="width" constant="70" id="mfs-ea-z2d"/>
@@ -27,6 +27,9 @@
                                 <state key="normal" title="Connect">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="4Jl-ut-bAI" kind="modal" id="mca-c2-Udi"/>
@@ -39,6 +42,9 @@
                             <constraint firstAttribute="centerY" secondItem="reP-ky-BxY" secondAttribute="centerY" id="UJ1-2e-0pU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connectButton" destination="reP-ky-BxY" id="brS-az-ywy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

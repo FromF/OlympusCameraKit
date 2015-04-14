@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
     var NotificationApplicationBackground : NSString    = "NotificationApplicationBackground"
     var NotificationNetworkConnected : NSString         = "NotificationNetworkConnected"
     var NotificationNetworkDisconnected : NSString      = "NotificationNetworkDisconnected"
+    var reachabilityForLocalWiFi : Reachability = Reachability.reachabilityForLocalWiFi()
     
     class var sharedCamera : OLYCamera {
         struct Static {
@@ -29,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
         // Override point for customization after application launch.
         var camera = AppDelegate.sharedCamera
         camera.connectionDelegate = self;
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didChangeNetworkReachability:", name: kReachabilityChangedNotification as String, object: nil)
+        //Reachability Notication Start
+        reachabilityForLocalWiFi.startNotifier()
 
         return true
     }
@@ -42,10 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationApplicationBackground as String, object: nil)
+        //Reachability Notication Stop
+        reachabilityForLocalWiFi.stopNotifier()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        //Reachability Notication Start
+        reachabilityForLocalWiFi.startNotifier()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -63,5 +71,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
         NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationCameraKitDisconnect as String, object:self)
     }
 
+    // MARK: - Rechability Notification
+    func didChangeNetworkReachability(noteObject : Reachability!) {
+        var status : Int = self.reachabilityForLocalWiFi.currentReachabilityStatus().value
+        
+        if (status == 1 /*ReachableViaWiFi*/) {
+            println("Rechability Connected")
+            NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationNetworkConnected as String, object:self)
+        } else {
+            println("Rechability Disconnected")
+            NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationNetworkDisconnected as String, object:self)
+        }
+    }
 }
 

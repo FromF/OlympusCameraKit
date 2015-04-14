@@ -10,5 +10,6 @@
 #define RecCameraSwift_RecCameraSwift_Bridging_Header_h
 
 #import <OLYCameraKit/OLYCamera.h>
+#import "Reachability.h"
 
 #endif
