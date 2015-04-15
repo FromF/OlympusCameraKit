@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     func connectButtonEnable() {
         let status : Int = appDelegate.reachabilityForLocalWiFi.currentReachabilityStatus().value
         
-        if (status == 1 /*ReachableViaWiFi*/) {
+        if (status == ReachableViaWiFi.value) {
             connectButton.enabled = true
         } else {
             connectButton.enabled = false

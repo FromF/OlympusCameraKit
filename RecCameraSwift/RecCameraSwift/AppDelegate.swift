@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
     func didChangeNetworkReachability(noteObject : Reachability!) {
         var status : Int = self.reachabilityForLocalWiFi.currentReachabilityStatus().value
         
-        if (status == 1 /*ReachableViaWiFi*/) {
+        if (status == ReachableViaWiFi.value) {
             println("Rechability Connected")
             NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationNetworkConnected as String, object:self)
         } else {
