@@ -18,7 +18,7 @@ class LiveView: UIViewController , OLYCameraLiveViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //Notification Regist
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationApplicationBackground:", name: appDelegate.NotificationApplicationBackground as String, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationApplicationBackground:", name: UIApplicationDidEnterBackgroundNotification , object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationCameraKitDisconnect:", name: appDelegate.NotificationCameraKitDisconnect as String, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationRechabilityDisconnect:", name: appDelegate.NotificationNetworkDisconnected as String, object: nil)
 

@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
     var window: UIWindow?
 
     var NotificationCameraKitDisconnect : NSString      = "NotificationCameraKitDisconnect"
-    var NotificationApplicationBackground : NSString    = "NotificationApplicationBackground"
     var NotificationNetworkConnected : NSString         = "NotificationNetworkConnected"
     var NotificationNetworkDisconnected : NSString      = "NotificationNetworkDisconnected"
     var reachabilityForLocalWiFi : Reachability = Reachability.reachabilityForLocalWiFi()
@@ -45,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , OLYCameraConnectionDeleg
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationApplicationBackground as String, object: nil)
         //Reachability Notication Stop
         reachabilityForLocalWiFi.stopNotifier()
     }
