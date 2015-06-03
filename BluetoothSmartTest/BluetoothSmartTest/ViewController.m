@@ -40,7 +40,9 @@
 
 #pragma mark - Button Action
 - (IBAction)GetBluetoothSmartParingInfomationAction:(id)sender {
-    [OACentralConfiguration requestConfigurationURL:@"BluetoothSmartTest.OlympusCameraKit.FromF.github.com"];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [OACentralConfiguration requestConfigurationURL:@"BluetoothSmartTest.OlympusCameraKit.FromF.github.com"];
+    });
 }
 - (IBAction)PowerOnTestAction:(id)sender {
     BOOL result = YES;
