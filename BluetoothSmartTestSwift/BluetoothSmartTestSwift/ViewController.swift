@@ -80,7 +80,7 @@ class ViewController: UIViewController , CBCentralManagerDelegate {
     
 // MARK: - Notification
     func bluetoothSmartUpdated(notification : NSNotification?) {
-        dispatch_sync(dispatch_get_main_queue(), {
+        dispatch_async(dispatch_get_main_queue(), {
             self.infoLabel.text = "Name[\(self.appDelegate.BluetoothSmartName)] Passcode[\(self.appDelegate.BluetoothSmartPasscode)]"
         })
     }
