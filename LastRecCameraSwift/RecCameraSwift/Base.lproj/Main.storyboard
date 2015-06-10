@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RecCameraSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reP-ky-BxY">
+                                <rect key="frame" x="265" y="280" width="70" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EQO-vI-xC4"/>
+                                    <constraint firstAttribute="width" constant="70" id="mfs-ea-z2d"/>
+                                </constraints>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4Jl-ut-bAI" kind="modal" id="mca-c2-Udi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="reP-ky-BxY" secondAttribute="centerX" id="86i-K5-bfO"/>
+                            <constraint firstAttribute="centerY" secondItem="reP-ky-BxY" secondAttribute="centerY" id="UJ1-2e-0pU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="connectButton" destination="reP-ky-BxY" id="brS-az-ywy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="399"/>
+        </scene>
+        <!--Live View-->
+        <scene sceneID="Pgq-vg-TiD">
+            <objects>
+                <viewController id="4Jl-ut-bAI" customClass="LiveView" customModule="RecCameraSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qxe-h8-UsD"/>
+                        <viewControllerLayoutGuide type="bottom" id="ha9-U2-lub"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rDd-NG-chW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjt-8o-p15">
+                                <rect key="frame" x="260" y="552" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="7NI-e6-GXb"/>
+                                    <constraint firstAttribute="height" constant="40" id="xVx-dO-h9e"/>
+                                </constraints>
+                                <state key="normal" title="Shutter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shutterButtonAction:" destination="4Jl-ut-bAI" eventType="touchUpInside" id="oV6-7J-sHS"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yua-9z-vFW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="544"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hh-12-i0z">
+                                <rect key="frame" x="360" y="416" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="PQN-Le-EWC"/>
+                                    <constraint firstAttribute="height" constant="128" id="nDI-kg-D03"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGJ-tG-Cn1">
+                                <rect key="frame" x="342" y="561" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-5" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="dZK-gZ-xND">
+                                <rect key="frame" x="19" y="555" width="238" height="31"/>
+                                <connections>
+                                    <action selector="exprevSlider:" destination="4Jl-ut-bAI" eventType="valueChanged" id="m5s-OM-eq8"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2hh-12-i0z" secondAttribute="trailing" constant="-16" id="5F9-bb-RWH"/>
+                            <constraint firstItem="Wjt-8o-p15" firstAttribute="leading" secondItem="dZK-gZ-xND" secondAttribute="trailing" constant="62" id="65U-Dn-DfX"/>
+                            <constraint firstItem="dZK-gZ-xND" firstAttribute="leading" secondItem="rDd-NG-chW" secondAttribute="leadingMargin" constant="5" id="8AC-0H-RkR"/>
+                            <constraint firstAttribute="centerX" secondItem="Wjt-8o-p15" secondAttribute="centerX" id="ETl-Wc-7ed"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tGJ-tG-Cn1" secondAttribute="trailing" constant="2" id="IxL-1e-dcs"/>
+                            <constraint firstItem="yua-9z-vFW" firstAttribute="top" secondItem="rDd-NG-chW" secondAttribute="topMargin" id="K1c-Vu-H5L"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="tGJ-tG-Cn1" secondAttribute="bottom" constant="18" id="Pld-sX-MCH"/>
+                            <constraint firstItem="tGJ-tG-Cn1" firstAttribute="leading" secondItem="Wjt-8o-p15" secondAttribute="trailing" constant="2" id="RIH-Qt-Olz"/>
+                            <constraint firstItem="dZK-gZ-xND" firstAttribute="leading" secondItem="rDd-NG-chW" secondAttribute="leadingMargin" constant="68" id="W1i-7I-ztx"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="dZK-gZ-xND" secondAttribute="bottom" constant="15" id="WQG-Qa-xay"/>
+                            <constraint firstItem="Wjt-8o-p15" firstAttribute="leading" secondItem="dZK-gZ-xND" secondAttribute="trailing" constant="5" id="Wzi-HW-ecc"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="dZK-gZ-xND" secondAttribute="bottom" constant="15" id="Yz2-Xg-YCf"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="yua-9z-vFW" secondAttribute="bottom" id="gkG-1p-lcq"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="dZK-gZ-xND" secondAttribute="bottom" constant="15" id="oca-I4-ifw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yua-9z-vFW" secondAttribute="trailing" constant="-16" id="uev-1D-eJC"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="Wjt-8o-p15" secondAttribute="bottom" constant="8" id="w29-HZ-Wrp"/>
+                            <constraint firstItem="ha9-U2-lub" firstAttribute="top" secondItem="2hh-12-i0z" secondAttribute="bottom" constant="56" id="y6g-7e-2go"/>
+                            <constraint firstItem="yua-9z-vFW" firstAttribute="leading" secondItem="rDd-NG-chW" secondAttribute="leadingMargin" constant="-16" id="zia-1U-KUi"/>
+                            <constraint firstItem="Wjt-8o-p15" firstAttribute="top" secondItem="yua-9z-vFW" secondAttribute="bottom" constant="8" id="zux-MA-oAm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="W1i-7I-ztx"/>
+                                <exclude reference="Yz2-Xg-YCf"/>
+                                <exclude reference="gkG-1p-lcq"/>
+                                <exclude reference="oca-I4-ifw"/>
+                                <exclude reference="65U-Dn-DfX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="infomation" destination="tGJ-tG-Cn1" id="f1g-TC-os6"/>
+                        <outlet property="liveViewImage" destination="yua-9z-vFW" id="XoL-XC-E0S"/>
+                        <outlet property="recviewImage" destination="2hh-12-i0z" id="281-9N-LJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWl-kX-UcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="399"/>
+        </scene>
+    </scenes>
+</document>
