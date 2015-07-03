@@ -67,47 +67,44 @@ class LiveView: UIViewController , OLYCameraLiveViewDelegate , OLYCameraRecordin
     @IBAction func shutterButtonAction(sender: AnyObject) {
         var camera:OLYCamera = AppDelegate.sharedCamera
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            if (true) {
-                self.imagecache.takePictureHDR(camera)
-            } else {
-                let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0)
-                camera.lockAutoExposure(nil)
-                camera.lockAutoFocus( { info in {
+            let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0)
+            //HDR Shooting sequence call
+            camera.lockAutoExposure(nil)
+            camera.lockAutoFocus( { info -> Void in
+                dispatch_semaphore_signal(semaphore)
+                println("Comp")
+                }, errorHandler: { error -> Void in
                     dispatch_semaphore_signal(semaphore)
-                    }
-                    }, errorHandler: nil)
-                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-                camera.setCameraPropertyValue("EXPREV", value: "+2.0", error: nil)
-                camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+                    println("Error")
+            })
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+            for var i = 0 ; i < 3 ; i++ {
+                switch i {
+                case 0:
+                    camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/+2.0>", error: nil)
+                case 1:
+                    camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/+0.0>", error: nil)
+                case 2:
+                    camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/-2.0>", error: nil)
+                default:
+                    camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/+0.0>", error: nil)
+                }
+                camera.takePicture(nil, progressHandler: nil, completionHandler:{info -> Void in
                     dispatch_semaphore_signal(semaphore)
-                    }}, errorHandler: nil)
+                    println("Comp")
+                    }, errorHandler: {error -> Void in
+                        dispatch_semaphore_signal(semaphore)
+                        println("Error")
+                })
                 dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
                 while camera.mediaBusy {
                     println("media busy...")
                     NSThread.sleepForTimeInterval(0.5)
                 }
-                camera.setCameraPropertyValue("EXPREV", value: "+0.0", error: nil)
-                camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
-                    dispatch_semaphore_signal(semaphore)
-                    }}, errorHandler: nil)
-                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-                while camera.mediaBusy {
-                    println("media busy...")
-                    NSThread.sleepForTimeInterval(0.5)
-                }
-                camera.setCameraPropertyValue("EXPREV", value: "-2.0", error: nil)
-                camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
-                    dispatch_semaphore_signal(semaphore)
-                    }}, errorHandler: nil)
-                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-                while camera.mediaBusy {
-                    println("media busy...")
-                    NSThread.sleepForTimeInterval(0.5)
-                }
-                camera.setCameraPropertyValue("EXPREV", value: "0.0", error: nil)
-                camera.unlockAutoFocus(nil)
-                camera.unlockAutoExposure(nil)
             }
+            camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/0.0>", error: nil)
+            camera.unlockAutoFocus(nil)
+            camera.unlockAutoExposure(nil)
         })
     }
     

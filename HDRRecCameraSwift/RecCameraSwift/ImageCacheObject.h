@@ -14,6 +14,5 @@
 
 - (void)setUncahcedImage:(NSString *)imgPath image:(UIImage *)img;
 - (UIImage *)getUncachedImage:(NSString *)imgPath;
--(void)takePictureHDR:(OLYCamera *)camera;
 
 @end
